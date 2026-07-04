@@ -1,0 +1,85 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR","Malgun Gothic",sans-serif;background:#f4f6fa;color:#222}
+.screen{display:none;min-height:100vh}.screen.active{display:block}
+.card{max-width:520px;margin:0 auto;background:#fff;border-radius:22px;padding:24px;box-shadow:0 6px 22px rgba(0,0,0,.12)}
+.center{margin-top:30px;text-align:center}.welcome{font-size:28px;font-weight:900;line-height:1.45;margin:22px 0;color:#153b63}
+.verse{border:1px solid #cdd8e5;border-radius:16px;background:#f8fbff;padding:16px;line-height:1.7;margin:20px 0;font-size:18px}
+.top{background:#153b63;color:#fff;padding:16px;text-align:center;position:sticky;top:0;z-index:5}.top h1{font-size:25px;margin-bottom:12px}
+.areaSelect{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}.areaSelect button{padding:12px 8px;border:1px solid rgba(255,255,255,.55);border-radius:12px;background:#24527d;color:white;font-size:16px;font-weight:800}.areaSelect button.activeArea{background:#fff;color:#153b63}
+.progressText{font-size:22px;font-weight:900;margin-bottom:8px}.progressBar{width:100%;height:16px;background:#d6dce5;border-radius:30px;overflow:hidden}#progressFill{width:0%;height:100%;background:#27ae60;transition:.25s}#progressPercent{font-size:18px;font-weight:900;margin-top:8px}
+main{padding:16px;max-width:620px;margin:auto}.houseCard{background:white;border-radius:22px;padding:18px;box-shadow:0 4px 15px rgba(0,0,0,.13)}
+.number{font-size:58px;font-weight:900;color:#153b63;text-align:center;margin:8px 0 12px}.name{font-size:26px;font-weight:900;text-align:center;margin-bottom:8px;min-height:34px}.address{font-size:21px;text-align:center;color:#555;margin-bottom:22px}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}.buttons button{border:none;border-radius:14px;padding:17px 8px;font-size:19px;font-weight:900;color:white;opacity:.45}.buttons button.selected{opacity:1;outline:4px solid #111}
+.visit{background:#27ae60}.absent{background:#f1c40f;color:#222!important}.reject{background:#e74c3c}.closed{background:#555}
+#memo{width:100%;margin-top:18px;height:110px;padding:14px;font-size:18px;border-radius:12px;border:1px solid #bbb;resize:none}
+.nav{display:flex;gap:10px;margin-top:16px}.nav button,.primary,.secondary,.reportBtn{border:none;border-radius:14px;padding:16px;font-size:19px;font-weight:900}.nav button{flex:1;background:#153b63;color:white}.primary{width:100%;background:#153b63;color:white}.secondary{width:100%;margin-top:8px;background:#777;color:white}.reportBtn{width:100%;margin-top:12px;background:#304b2f;color:white}
+.report{margin-top:16px;background:#fff;border-radius:18px;padding:18px;box-shadow:0 4px 15px rgba(0,0,0,.12)}.report h2{text-align:center;color:#153b63;margin-bottom:12px}.report pre{white-space:pre-wrap;line-height:1.7;font-size:18px;background:#f7f9fc;border-radius:12px;padding:14px;margin-bottom:12px}.hidden{display:none}
+@media(max-width:480px){.number{font-size:48px}.name{font-size:23px}.address{font-size:18px}.buttons button{font-size:18px;padding:15px 6px}}
+
+.mapBtn{width:100%;margin-top:12px;border:none;border-radius:14px;padding:16px;font-size:19px;font-weight:900;background:#0f6b83;color:white}
+.mapPanel{margin-top:16px;background:#fff;border-radius:18px;padding:14px;box-shadow:0 4px 15px rgba(0,0,0,.12)}
+.mapHeader{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:20px;color:#153b63}
+.mapHeader button{border:none;border-radius:10px;background:#777;color:white;padding:9px 12px;font-weight:900}
+.mapTools{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.mapTools button{border:none;border-radius:10px;background:#153b63;color:white;padding:11px 5px;font-weight:900;font-size:15px}
+#map{height:430px;border-radius:14px;border:1px solid #cfd8e3;overflow:hidden}
+.markerLabel{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;border:3px solid white;box-shadow:0 2px 7px rgba(0,0,0,.45);font-size:13px}
+.marker_visit{background:#27ae60}.marker_absent{background:#f1c40f;color:#111}.marker_reject{background:#e74c3c}.marker_closed{background:#555}.marker_none{background:#153b63}
+.currentPulse{width:18px;height:18px;background:#1e88e5;border:3px solid white;border-radius:50%;box-shadow:0 0 0 8px rgba(30,136,229,.25)}
+@media(max-width:480px){#map{height:360px}.mapTools button{font-size:14px}}
+
+
+/* v3.1 mobile compact update */
+.top{padding:10px 12px}
+.top h1{font-size:22px;margin-bottom:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.areaSelect{gap:6px;margin-bottom:8px}
+.areaSelect button{padding:9px 5px;font-size:13px;border-radius:10px}
+.compactProgress{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.compactProgress .progressText{font-size:16px;margin:0;min-width:48px;text-align:left}
+.compactProgress .progressBar{height:12px;flex:1;min-width:90px}
+.compactProgress #progressPercent{font-size:16px;margin:0;min-width:40px;text-align:right}
+main{padding:10px}
+.houseCard{padding:14px;border-radius:18px}
+.number{font-size:42px;margin:4px 0 8px;line-height:1.05}
+.name{font-size:20px;min-height:auto;margin-bottom:5px;line-height:1.25}
+.address{font-size:16px;margin-bottom:14px;line-height:1.35}
+.buttons{grid-template-columns:1fr 1fr;gap:8px}
+.buttons button{font-size:16px;padding:13px 5px;border-radius:12px}
+.nav{gap:8px;margin-top:12px}
+.nav button,.mapBtn,.reportBtn{font-size:16px;padding:13px;border-radius:12px}
+.memoBox{margin-top:12px;border:1px solid #cfd8e3;border-radius:12px;background:#f8fbff;overflow:hidden}
+.memoBox summary{padding:12px 14px;font-size:16px;font-weight:900;color:#153b63;cursor:pointer;list-style:none}
+.memoBox summary::-webkit-details-marker{display:none}
+#memo{margin-top:0;height:82px;border:0;border-top:1px solid #cfd8e3;border-radius:0;font-size:16px;padding:12px;background:white}
+.report pre{font-size:15px}
+.mapHeader{font-size:17px}
+#map{height:330px}
+@media(max-width:480px){
+  .top h1{font-size:20px}
+  .number{font-size:42px}
+  .name{font-size:19px}
+  .address{font-size:16px}
+  .buttons button{font-size:16px;padding:12px 4px}
+  .areaSelect button{font-size:12px;padding:8px 4px}
+  #map{height:300px}
+}
+
+
+/* v3.2 ultra compact + team/leader */
+body{font-size:13px}
+.card{padding:16px;border-radius:16px}
+.welcome{font-size:20px;margin:14px 0}.verse{font-size:14px;padding:12px;margin:14px 0}
+.top{padding:7px 8px}.top h1{font-size:17px;margin-bottom:6px}
+.modeSelect{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-bottom:6px}
+.modeSelect button{border:1px solid rgba(255,255,255,.55);border-radius:9px;background:#44698d;color:white;padding:7px 3px;font-size:12px;font-weight:900}
+.modeSelect button.activeMode{background:#fff;color:#153b63}
+.areaSelect{grid-template-columns:1fr 1fr 1fr 1fr;gap:4px;margin-bottom:6px}.areaSelect button{font-size:11px;padding:7px 2px;border-radius:8px}
+.compactProgress{gap:6px}.compactProgress .progressText{font-size:13px;min-width:38px}.compactProgress .progressBar{height:9px}.compactProgress #progressPercent{font-size:13px;min-width:33px}
+main{padding:7px;max-width:620px}.houseCard{padding:10px;border-radius:14px}.number{font-size:38px;margin:0 0 5px}.name{font-size:16px;margin-bottom:3px}.address{font-size:13px;margin-bottom:9px}
+.buttons{gap:6px}.buttons button{font-size:13px;padding:9px 3px;border-radius:9px}.buttons button.selected{outline:2px solid #111;opacity:1}.buttons button{opacity:.48}
+.memoBox{margin-top:8px;border-radius:9px}.memoBox summary{padding:8px 10px;font-size:13px}#memo{height:64px;font-size:13px;padding:8px}
+.nav{gap:6px;margin-top:8px}.nav button,.mapBtn,.reportBtn,.primary,.secondary{font-size:13px;padding:10px;border-radius:10px}.mapBtn,.reportBtn{margin-top:7px}
+.report{padding:12px}.report h2{font-size:17px}.report pre{font-size:12px;padding:10px;line-height:1.45}
+.mapPanel{padding:9px;margin-top:10px}.mapHeader{font-size:14px}.mapTools{gap:5px}.mapTools button{font-size:11px;padding:8px 3px}#map{height:260px}.markerLabel{width:24px;height:24px;font-size:11px}
+.panelCard{background:#fff;border-radius:14px;padding:12px;box-shadow:0 4px 15px rgba(0,0,0,.12)}.panelCard h2{font-size:17px;color:#153b63;margin-bottom:10px;text-align:center}.panelCard h3{font-size:15px;margin:12px 0 8px;color:#153b63}.inputRow{display:flex;gap:6px}.inputRow input{flex:1;border:1px solid #bbb;border-radius:10px;padding:10px;font-size:14px}.inputRow button,.pairActions button{border:0;border-radius:10px;background:#153b63;color:#fff;font-size:13px;font-weight:900;padding:10px}.participantList,.pairList,.areaDashboard,.leaderSummary,#leaderPairs{display:grid;gap:7px}.participantItem,.pairItem,.areaDashItem,.summaryBox{border:1px solid #d6dce5;border-radius:10px;padding:9px;background:#f8fbff;font-size:13px}.participantItem{display:flex;justify-content:space-between;align-items:center}.participantItem button{border:0;border-radius:8px;padding:7px 9px;background:#ddd;font-weight:900}.participantItem button.selected{background:#153b63;color:#fff}.pairActions{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:8px 0}.pairItem{display:flex;justify-content:space-between;gap:8px;align-items:center}.pairItem button{border:0;border-radius:8px;background:#c62828;color:white;padding:6px 8px;font-weight:900}.areaDashItem b{color:#153b63}.barMini{height:8px;background:#d6dce5;border-radius:20px;overflow:hidden;margin-top:5px}.barMini div{height:100%;background:#27ae60}.summaryGrid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.summaryBox b{display:block;font-size:17px;color:#153b63}
+@media(max-width:480px){.top h1{font-size:16px}.number{font-size:36px}.name{font-size:15px}.address{font-size:12px}.buttons button{font-size:12px;padding:8px 2px}.areaSelect button,.modeSelect button{font-size:10.5px}.nav button,.mapBtn,.reportBtn{font-size:12px;padding:9px}#map{height:240px}}
