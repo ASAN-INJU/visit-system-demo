@@ -1,0 +1,29 @@
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR","Malgun Gothic",sans-serif;background:#f4f6fa;color:#222}
+.screen{display:none;min-height:100vh}.screen.active{display:block}
+.card{max-width:520px;margin:0 auto;background:#fff;border-radius:22px;padding:24px;box-shadow:0 6px 22px rgba(0,0,0,.12)}
+.center{margin-top:30px;text-align:center}.welcome{font-size:28px;font-weight:900;line-height:1.45;margin:22px 0;color:#153b63}
+.verse{border:1px solid #cdd8e5;border-radius:16px;background:#f8fbff;padding:16px;line-height:1.7;margin:20px 0;font-size:18px}
+.top{background:#153b63;color:#fff;padding:16px;text-align:center;position:sticky;top:0;z-index:5}.top h1{font-size:25px;margin-bottom:12px}
+.areaSelect{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}.areaSelect button{padding:12px 8px;border:1px solid rgba(255,255,255,.55);border-radius:12px;background:#24527d;color:white;font-size:16px;font-weight:800}.areaSelect button.activeArea{background:#fff;color:#153b63}
+.progressText{font-size:22px;font-weight:900;margin-bottom:8px}.progressBar{width:100%;height:16px;background:#d6dce5;border-radius:30px;overflow:hidden}#progressFill{width:0%;height:100%;background:#27ae60;transition:.25s}#progressPercent{font-size:18px;font-weight:900;margin-top:8px}
+main{padding:16px;max-width:620px;margin:auto}.houseCard{background:white;border-radius:22px;padding:18px;box-shadow:0 4px 15px rgba(0,0,0,.13)}
+.number{font-size:58px;font-weight:900;color:#153b63;text-align:center;margin:8px 0 12px}.name{font-size:26px;font-weight:900;text-align:center;margin-bottom:8px;min-height:34px}.address{font-size:21px;text-align:center;color:#555;margin-bottom:22px}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px}.buttons button{border:none;border-radius:14px;padding:17px 8px;font-size:19px;font-weight:900;color:white;opacity:.45}.buttons button.selected{opacity:1;outline:4px solid #111}
+.visit{background:#27ae60}.absent{background:#f1c40f;color:#222!important}.reject{background:#e74c3c}.closed{background:#555}
+#memo{width:100%;margin-top:18px;height:110px;padding:14px;font-size:18px;border-radius:12px;border:1px solid #bbb;resize:none}
+.nav{display:flex;gap:10px;margin-top:16px}.nav button,.primary,.secondary,.reportBtn{border:none;border-radius:14px;padding:16px;font-size:19px;font-weight:900}.nav button{flex:1;background:#153b63;color:white}.primary{width:100%;background:#153b63;color:white}.secondary{width:100%;margin-top:8px;background:#777;color:white}.reportBtn{width:100%;margin-top:12px;background:#304b2f;color:white}
+.report{margin-top:16px;background:#fff;border-radius:18px;padding:18px;box-shadow:0 4px 15px rgba(0,0,0,.12)}.report h2{text-align:center;color:#153b63;margin-bottom:12px}.report pre{white-space:pre-wrap;line-height:1.7;font-size:18px;background:#f7f9fc;border-radius:12px;padding:14px;margin-bottom:12px}.hidden{display:none}
+@media(max-width:480px){.number{font-size:48px}.name{font-size:23px}.address{font-size:18px}.buttons button{font-size:18px;padding:15px 6px}}
+
+.mapBtn{width:100%;margin-top:12px;border:none;border-radius:14px;padding:16px;font-size:19px;font-weight:900;background:#0f6b83;color:white}
+.mapPanel{margin-top:16px;background:#fff;border-radius:18px;padding:14px;box-shadow:0 4px 15px rgba(0,0,0,.12)}
+.mapHeader{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:20px;color:#153b63}
+.mapHeader button{border:none;border-radius:10px;background:#777;color:white;padding:9px 12px;font-weight:900}
+.mapTools{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:10px}
+.mapTools button{border:none;border-radius:10px;background:#153b63;color:white;padding:11px 5px;font-weight:900;font-size:15px}
+#map{height:430px;border-radius:14px;border:1px solid #cfd8e3;overflow:hidden}
+.markerLabel{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:900;border:3px solid white;box-shadow:0 2px 7px rgba(0,0,0,.45);font-size:13px}
+.marker_visit{background:#27ae60}.marker_absent{background:#f1c40f;color:#111}.marker_reject{background:#e74c3c}.marker_closed{background:#555}.marker_none{background:#153b63}
+.currentPulse{width:18px;height:18px;background:#1e88e5;border:3px solid white;border-radius:50%;box-shadow:0 0 0 8px rgba(30,136,229,.25)}
+@media(max-width:480px){#map{height:360px}.mapTools button{font-size:14px}}

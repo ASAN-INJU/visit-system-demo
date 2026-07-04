@@ -1,1 +1,3 @@
-# visit-system-demo
+# 인주회중 야외봉사시스템 v3 Demo
+
+압축을 풀고 GitHub 저장소에 업로드하세요.
