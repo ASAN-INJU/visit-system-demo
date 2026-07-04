@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>인주회중 야외봉사시스템 v3</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<section id="intro" class="screen active">
+  <div class="card center">
+    <h1>인주회중</h1>
+    <p class="welcome">야외봉사에<br>참여를 환영합니다!</p>
+    <div class="verse">“왕국의 좋은 소식이 사람이 거주하는 온 땅에 전파될 것입니다.”<br><b>— 마태복음 24:14</b></div>
+    <button class="primary" onclick="showApp()">시작하기</button>
+  </div>
+</section>
+<section id="app" class="screen">
+  <header class="top">
+    <h1 id="areaTitle">걸매리</h1>
+    <div class="areaSelect">
+      <button onclick="loadArea('A')">마을회관 A</button>
+      <button onclick="loadArea('B')">마을회관 B</button>
+      <button onclick="loadArea('C')">인주공단 A</button>
+      <button onclick="loadArea('D')">인주공단 B</button>
+    </div>
+    <div class="progress compactProgress">
+      <div class="progressText"><span id="current">1</span>/<span id="total">0</span></div>
+      <div class="progressBar"><div id="progressFill"></div></div>
+      <div id="progressPercent">0%</div>
+    </div>
+  </header>
+  <main>
+    <div class="houseCard">
+      <div class="number" id="houseNumber">-</div>
+      <div class="name" id="houseName">-</div>
+      <div class="address" id="houseAddress">-</div>
+      <div class="buttons">
+        <button id="btn_visit" class="visit" onclick="setStatus('visit')">방문함</button>
+        <button id="btn_absent" class="absent" onclick="setStatus('absent')">부재</button>
+        <button id="btn_reject" class="reject" onclick="setStatus('reject')">방문거절</button>
+        <button id="btn_closed" class="closed" onclick="setStatus('closed')">폐문부재</button>
+      </div>
+      <details class="memoBox">
+        <summary>📝 메모 열기/닫기</summary>
+        <textarea id="memo" placeholder="메모를 입력하세요"></textarea>
+      </details>
+      <div class="nav">
+        <button onclick="prevHouse()">◀ 이전</button>
+        <button onclick="nextHouse()">다음 ▶</button>
+      </div>
+      <button class="mapBtn" onclick="showMap()">🗺 지도 보기</button>
+      <button class="reportBtn" onclick="showReport()">📋 봉사 종료 보고</button>
+    </div>
+    <div id="mapPanel" class="mapPanel hidden">
+      <div class="mapHeader">
+        <b>구역 지도</b>
+        <button onclick="hideMap()">닫기</button>
+      </div>
+      <div class="mapTools">
+        <button onclick="focusCurrentHouse()">현재 집</button>
+        <button onclick="showMyLocation()">현재 위치</button>
+        <button onclick="fitAreaMap()">전체 보기</button>
+      </div>
+      <div id="map"></div>
+    </div>
+    <div id="report" class="report hidden">
+      <h2>오늘 봉사 결과</h2>
+      <pre id="reportText"></pre>
+      <button class="primary" onclick="copyReport()">결과 복사</button>
+      <button class="secondary" onclick="hideReport()">닫기</button>
+    </div>
+  </main>
+</section>
+<script src="houses.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+</script>
+</body>
+</html>
