@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>인주회중 야외봉사시스템 v3</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+</head>
+<body>
+<header class="top">
+  <h1 id="areaTitle">걸매리 마을회관 A</h1>
+  <div class="areaSelect">
+    <button onclick="loadArea('A')">마을회관 A</button>
+    <button onclick="loadArea('B')">마을회관 B</button>
+    <button onclick="loadArea('C')">인주공단 A</button>
+    <button onclick="loadArea('D')">인주공단 B</button>
+  </div>
+  <div class="progress">
+    <div class="progressText"><span id="current">1</span> / <span id="total">0</span></div>
+    <div class="progressBar"><div id="progressFill"></div></div>
+    <div id="progressPercent">0%</div>
+  </div>
+</header>
+
+<main>
+  <section class="houseCard" id="cardView">
+    <div class="number" id="houseNumber">-</div>
+    <div class="name" id="houseName">-</div>
+    <div class="address" id="houseAddress">-</div>
+    <div class="buttons">
+      <button id="btn_visit" class="visit" onclick="setStatus('visit')">방문함</button>
+      <button id="btn_absent" class="absent" onclick="setStatus('absent')">부재</button>
+      <button id="btn_reject" class="reject" onclick="setStatus('reject')">방문거절</button>
+      <button id="btn_closed" class="closed" onclick="setStatus('closed')">폐문부재</button>
+    </div>
+    <textarea id="memo" placeholder="메모를 입력하세요"></textarea>
+    <div class="nav">
+      <button onclick="prevHouse()">◀ 이전</button>
+      <button onclick="nextHouse()">다음 ▶</button>
+    </div>
+    <button class="reportBtn" onclick="showReport()">📋 봉사 종료 / 결과 보기</button>
+  </section>
+
+  <section class="houseCard hidden" id="reportView">
+    <h2>오늘 봉사 결과</h2>
+    <pre id="reportText"></pre>
+    <button class="reportBtn" onclick="copyReport()">결과 복사</button>
+    <button class="reportBtn secondary" onclick="hideReport()">돌아가기</button>
+  </section>
+</main>
+
+<script src="houses_A.js"></script>
+<script src="houses_B.js"></script>
+<script src="houses_C.js"></script>
+<script src="houses_D.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
